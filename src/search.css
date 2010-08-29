@@ -1,0 +1,166 @@
+body {
+  font-family: "Arial", serif;
+  font-size: 70%;
+}
+
+h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+h2 a {
+  color: #000;
+}
+
+p {
+  margin: 0;
+}
+
+p a {
+  color: #666;
+}
+
+a:visited {
+  color: #999;
+}
+a img {
+  border:none;
+}
+
+form {
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+  z-index: 99;
+}
+#large {
+  position:absolute;
+  background: url("logo.gif") no-repeat 7px 5px white;
+  width:100%;
+  top:0;
+  bottom: 0;
+}
+#modesContainer {
+  position:absolute;
+  left:100px;
+}
+#modesContainer div {
+  display:inline;
+  margin-right:1em;
+  
+}
+#modesContainer label, #modesContainer input {
+  margin:0;
+  padding:0;
+}
+
+#searchContainer {
+  position:absolute;
+  top:37px;
+  width:97%;
+}
+
+:focus {
+  outline: 0;
+}
+
+.result {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.result:hover {
+  border: 2px solid #aaf;
+}
+
+#results .selected:hover {
+  cursor: default;
+}
+
+#results .selected, #results .selected a {
+  background: #229;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+#results, body, html {
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  overflow: hidden;
+}
+
+#results {
+  overflow: auto;
+  position: absolute;
+  top: 79px;
+  bottom: 0;
+  width: 100%;
+
+}
+
+#searchField {
+  width: 90%;
+  font-size: 1.5em;
+  border: 1px solid #999;
+}
+#tiny {
+  display:none;
+  position:absolute;
+  top:5px;
+  left:1px;
+}
+#hide {
+  display:block;
+  position:absolute;
+  top:5px;
+  right:10px;
+}
+.button, .button:visited {
+  display:block;
+  padding:2px;
+  color: #00f;
+  border:1px solid transparent;
+}
+
+.button:hover {
+  border:1px solid #aaa;
+  background: #ddd;
+}
+
+.images h2 {
+  overflow:hidden;
+  position:absolute;
+  white-space:nowrap;
+  background: #fff;
+  width:100%;
+  filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+
+}
+.images .result {
+  border:2px solid transparent;
+  float:left;
+  text-align:center;
+  height:150px;
+  width:150px;
+  margin:-2px;
+  position:relative;
+}
+
+#newWindow {
+  position:absolute;
+  right:10px;
+  top:62px;
+}
+#newWindow:visited { color:blue;}

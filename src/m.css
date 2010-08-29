@@ -1,0 +1,98 @@
+body {
+  font-family: "Arial", serif;
+  font-size: 70%;
+}
+
+h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+h2 a {
+  color: #000;
+}
+
+p {
+  margin: 0;
+}
+
+p a {
+  color: #666;
+}
+
+a:visited {
+  color: #999;
+}
+
+a img {
+  border: none;
+}
+
+form {
+  border-bottom: 1px solid gray;
+  z-index: 99;
+}
+
+#modesContainer {
+}
+
+#modesContainer label, #modesContainer input {
+  margin: 0;
+  padding: 0;
+}
+
+#searchContainer {
+}
+
+:focus {
+  outline: 0;
+}
+
+.result {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.result:hover {
+  border: 2px solid #aaf;
+}
+
+#results .selected:hover {
+  cursor: default;
+}
+
+#results .selected, #results .selected a {
+  background: #229;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+#results, body, html {
+  padding: 0;
+  margin: 0;
+}
+
+#searchField {
+  width: 90%;
+  font-size: 1.5em;
+  border: 1px solid #999;
+}
+
+.button:hover {
+  border: 1px solid #aaa;
+  background: #ddd;
+}
+
+.images .result {
+  border: 2px solid transparent;
+  float: left;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  margin: -2px;
+  position: relative;
+}
+

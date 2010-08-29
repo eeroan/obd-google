@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>OBD Google</ShortName>
+	<Image height="16" width="16" type="image/icon">http://eea.kapsi.fi/google/google.ico</Image>
+	<InputEncoding>ISO-8859-1</InputEncoding>
+	<Url type="text/html" template="http://eea.kapsi.fi/google/?q={searchTerms}"/>
+</OpenSearchDescription>
