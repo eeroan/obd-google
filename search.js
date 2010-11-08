@@ -19,10 +19,6 @@ google.setOnLoadCallback(function() {
   initToggleBehavior();
   initRadioBehavior();
   initUrlParams();
-  //$("#newWindow").click(function() {
-  //  window.open('url','mywindow','width=900,height=800');
-  //  return false;
-  //});
 });
 
 function url() {
