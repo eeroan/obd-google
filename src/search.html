@@ -13,7 +13,7 @@
   <a href="search.html#" id="hide" class="button">&lt; Hide</a>
   <form onsubmit="return false;" action="index.html" method="get" target="_top">
   <div id="modesContainer">
-    <div>
+    <div class="selected">
       <input type="radio" name="mode" id="textMode" checked="checked" value="textMode" /> <label for="textMode">Text</label>
     </div>
     <div>
@@ -34,6 +34,7 @@
   <div id="results"></div>
 </div>
 <script src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q" type="text/javascript"></script>
+<script type="text/javascript" language="JavaScript" src="lib/jquery-1.4.2.js"></script>
 <script type="text/javascript" language="JavaScript" src="search.js?v=1.0.2"></script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

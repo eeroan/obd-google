@@ -1,4 +1,4 @@
-google.load("jquery", "1");
+//google.load("jquery", "1");
 
 var keyUpEvent;
 var firstResultSelectEvent;
@@ -10,7 +10,10 @@ var waitingForNext = false;
 var throttle = 30;
 var scrollDistance = 100;
 
-google.setOnLoadCallback(function() {
+//google.setOnLoadCallback(init);
+
+init();
+function init() {
   initJqueryPlugins();
   initSearchField();
   initShortcuts();
@@ -19,11 +22,9 @@ google.setOnLoadCallback(function() {
   initToggleBehavior();
   initRadioBehavior();
   initUrlParams();
-});
-
-function url() {
-  return "http://ajax.googleapis.com/ajax/services/search/" + searchMode().url;
 }
+
+function url() { return "http://ajax.googleapis.com/ajax/services/search/" + searchMode().url; }
 
 function searchMode() {
   var SEARCH_MODES = {
@@ -77,9 +78,7 @@ function initShortcuts() {
   });
 }
 
-function keyUpAction() {
-  fieldChange($("#searchField"), doSearch);
-}
+function keyUpAction() { fieldChange($("#searchField"), doSearch); }
 
 function initScrollBehavior() {
   $("#results").scroll(function() {
@@ -90,9 +89,7 @@ function initScrollBehavior() {
 }
 
 function initToggleBehavior() {
-  $("#hide").click(function() {
-    toggleSidebar(false);
-  });
+  $("#hide").click(function() { toggleSidebar(false); });
   $("#show").click(function() {
     toggleSidebar(true);
     $("#searchField").focus();
@@ -101,14 +98,14 @@ function initToggleBehavior() {
 
 function initRadioBehavior() {
   $("#modesContainer input").change(function() {
+    $("#modesContainer .selected").removeClass('selected');
+    $(this).parent().addClass('selected');
     $("#searchField").focus();
     setResultClass();
     doSearch();
   });
   setResultClass();
-  function setResultClass() {
-    $('#results').toggleClass('images', searchMode().isImages);
-  }
+  function setResultClass() { $('#results').toggleClass('images', searchMode().isImages); }
 }
 
 function initUrlParams() {
@@ -148,9 +145,9 @@ function doSearch() {
     $("#results").empty().scrollTop(0);
     callBack(data);
     if (hasResults(data)) {
-      doClick(results(data)[0], $("#results .result:first"),firstResultDelay);
+      doClick(results(data)[0], $("#results .result:first"), firstResultDelay);
     } else {
-      doClick({url:"empty.html",titleNoFormatting:"Google OBD"}, $("#searchField"),firstResultDelay);
+      doClick({url:"empty.html",titleNoFormatting:"Google OBD"}, $("#searchField"), firstResultDelay);
     }
     $("#icon").hide();
     doNext();
@@ -166,17 +163,9 @@ function doNext() {
   });
 }
 
-function hasResults(data) {
-  return results(data) && results(data).length > 0;
-}
-
-function results(data) {
-  return data.responseData.results;
-}
-
-function callBack(data) {
-  searchMode().callBack(data);
-}
+function hasResults(data) { return results(data) && results(data).length > 0; }
+function results(data) { return data.responseData.results; }
+function callBack(data) { searchMode().callBack(data); }
 
 function webCallBack(data) {
   var target = $("#results");
@@ -192,9 +181,7 @@ function webCallBack(data) {
       return false;
     });
     target.append(result);
-    function a() {
-      return $("<a>").attr("href", resultData.url);
-    }
+    function a() { return $("<a>").attr("href", resultData.url); }
   });
 }
 
@@ -211,9 +198,7 @@ function imagesCallBack(data) {
       return false;
     });
     target.append(result);
-    function a() {
-      return $("<a>").attr("href", resultData.url);
-    }
+    function a() { return $("<a>").attr("href", resultData.url); }
   });
 }
 
@@ -230,9 +215,7 @@ function youtubeCallback(data) {
       return false;
     });
     target.append(result);
-    function a() {
-      return $("<a>").attr("href", resultData.playUrl);
-    }
+    function a() { return $("<a>").attr("href", resultData.playUrl); }
   });
 }
 
@@ -256,9 +239,7 @@ function restParams(start) {
   };
 }
 
-function query() {
-  return $.trim($("#searchField").val()).replace(/\+/gi, "%2B").replace(/ /gi, "+");
-}
+function query() { return $.trim($("#searchField").val()).replace(/\+/gi, "%2B").replace(/ /gi, "+"); }
 
 function highlightSelected(newItem) {
   $("#results .selected").removeClass("selected");
@@ -266,7 +247,7 @@ function highlightSelected(newItem) {
 }
 
 function setTargetPage(url) {
-  $("#newWindow").attr("href",url);
+  $("#newWindow").attr("href", url);
   $(parent.document).find("#resultFrame").attr("src", url);
 }
 
@@ -282,10 +263,7 @@ function scrollTo(middleItem) {
 }
 
 function initJqueryPlugins() {
-  $.fn.exists = function() {
-    return this && this.length > 0;
-  };
-
+  $.fn.exists = function() { return this && this.length > 0; };
   $.extend({
     getURLParam: function(strParamName, strHref) {
       var strReturn = "";
@@ -306,14 +284,16 @@ function initJqueryPlugins() {
           }
         }
       }
-      if (!bFound) return null;
+      if (!bFound) {
+        return null;
+      }
       return strReturn;
     }
   });
 }
 
 function URLDecode(psEncodeString) {
-  if(!psEncodeString) {
+  if (!psEncodeString) {
     return null;
   }
   var lsRegExp = /\+/g;

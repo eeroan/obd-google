@@ -2,31 +2,12 @@ body {
   font-family: "Arial", serif;
   font-size: 70%;
 }
-
-h2 {
-  font-size: 1em;
-  margin: 0;
-}
-
-h2 a {
-  color: #000;
-}
-
-p {
-  margin: 0;
-}
-
-p a {
-  color: #666;
-}
-
-a:visited {
-  color: #999;
-}
-a img {
-  border:none;
-}
-
+h2 { font-size: 1em; margin: 0; }
+h2 a { color: #000; }
+p { margin: 0; }
+p a { color: #666; }
+a:visited { color: #999; }
+a img { border:none; }
 form {
   display: block;
   left: 0;
@@ -38,7 +19,7 @@ form {
 }
 #large {
   position:absolute;
-  background: url("logo.gif") no-repeat 7px 5px white;
+  background: url(logo.gif) no-repeat 7px 5px white;
   width:100%;
   top:0;
   bottom: 0;
@@ -50,12 +31,15 @@ form {
 #modesContainer div {
   display:inline;
   margin-right:1em;
-  
+  color:#666;
 }
+
 #modesContainer label, #modesContainer input {
   margin:0;
   padding:0;
 }
+
+#modesContainer .selected {color:#000;}
 
 #searchContainer {
   position:absolute;
