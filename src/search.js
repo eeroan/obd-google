@@ -99,7 +99,7 @@ function initToggleBehavior() {
 function initRadioBehavior() {
   $("#modesContainer input").change(function() {
     $("#modesContainer .selected").removeClass('selected');
-    $(this).parent().addClass('selected');
+    $(this).next().addClass('selected');
     $("#searchField").focus();
     setResultClass();
     doSearch();

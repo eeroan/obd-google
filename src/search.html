@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>Google search</title>
-  <link rel="stylesheet" href="search.css" type="text/css" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="search.css" type="text/css"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
 <div id="tiny">
@@ -11,25 +11,20 @@
 </div>
 <div id="large">
   <a href="search.html#" id="hide" class="button">&lt; Hide</a>
+
   <form onsubmit="return false;" action="index.html" method="get" target="_top">
-  <div id="modesContainer">
-    <div class="selected">
-      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode" /> <label for="textMode">Text</label>
+    <div id="modesContainer">
+      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode"/> <label for="textMode" class="selected">Text</label>
+      <input type="radio" name="mode" id="imageMode" value="imageMode"/> <label for="imageMode">Image</label>
+      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode"/> <label for="youtubeMode">YouTube</label>
     </div>
-    <div>
-     <input type="radio" name="mode" id="imageMode" value="imageMode" /> <label for="imageMode">Image</label>
-    </div>
-    <div>  
-      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode" /> <label for="youtubeMode">YouTube</label>
-    </div>
-  </div>
     <div id="searchContainer">
       <input type="text" id="searchField" value="" name="q" autocomplete="off"/>
-      <img src="ajax-loader.gif" alt="" id="icon" style="display:none" />
+      <img src="ajax-loader.gif" alt="" id="icon" style="display:none"/>
     </div>
-  <div>
-    <a href="search.html#" id="newWindow" target="_blank">open in new window</a>
-  </div>
+    <div>
+      <a href="search.html#" id="newWindow" target="_blank">open in new window</a>
+    </div>
   </form>
   <div id="results"></div>
 </div>
@@ -37,13 +32,13 @@
 <script type="text/javascript" language="JavaScript" src="lib/jquery-1.4.2.js"></script>
 <script type="text/javascript" language="JavaScript" src="search.js?v=1.0.2"></script>
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-4154602-1");
-pageTracker._initData();
-pageTracker._trackPageview();
+  var pageTracker = _gat._getTracker("UA-4154602-1");
+  pageTracker._initData();
+  pageTracker._trackPageview();
 </script>
 </body>
 </html>
