@@ -19,7 +19,7 @@ form { display: block; left: 0; width: 100%; padding: 0; border-bottom: 1px soli
 #large { position:absolute; background: url(logo.gif) no-repeat 7px 5px white; width:100%; top:0; bottom: 0;}
 
 #modesContainer {border-bottom:1px solid #BBBBBB;background:#BBCCFF;padding:5px;padding-bottom:0;}
-#modesContainer label { color: #666; cursor:pointer; font-size: 110%; margin-left: 2px; display: inline-block; padding: 6px 9px; background: white -moz-linear-gradient(19% 75% 90deg, #E3E3E3, #F9F9F9); -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;}
+#modesContainer label { color: #666; cursor:pointer; font-size: 110%; margin-left: 2px; display: inline-block; padding: 3px 10px; background: white -moz-linear-gradient(19% 75% 90deg, #E3E3E3, #F9F9F9); -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;}
 #modesContainer input { display:none;}
 #modesContainer .selected { color: black; position: relative; top: 1px; border: solid 1px #799CAE; background: white -moz-linear-gradient(19% 75% 90deg, #F9F9F9, #E3E3E3);; border-bottom-style: none; cursor: default;}
 
@@ -35,7 +35,11 @@ form { display: block; left: 0; width: 100%; padding: 0; border-bottom: 1px soli
 
 #searchField { width: 90%;font-size: 1.5em;border: 1px solid #999;-moz-border-radius:5px;}
 #tiny { display:none;position:absolute;top:5px;left:1px;}
-#hide { display:block;position:absolute;top:5px;right:10px;}
+#hide { display:block;position:absolute;top:5px;right:10px;background: white -moz-linear-gradient(19% 75% 90deg, #E3E3E3, #F9F9F9); border: 1px solid #bbb;color:#000;}
+#hide:hover { background: white -moz-linear-gradient(19% 75% 90deg, #F9F9F9, #E3E3E3); color:#000;}
+
+#clear {display:inline-block;margin-left:-20px;border: 1px solid #999;-moz-border-radius:15px;padding:1px 3px;line-height:1;background:#bbb; color:#fff;position:relative;top:-2px;cursor:pointer;}
+#clear:hover {background:#999;}
 
 .button, .button:visited { display:block;padding:2px;color: #00f;border:1px solid transparent;}
 .button:hover { border:1px solid #aaa;background: #ddd;}

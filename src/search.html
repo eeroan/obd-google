@@ -10,7 +10,7 @@
   <a href="search.html#" id="show" class="button">Show &gt;</a>
 </div>
 <div id="large">
-  <a href="search.html#" id="hide" class="button">&lt; Hide</a>
+  <a href="search.html#" id="hide" class="button">Hide</a>
 
   <form onsubmit="return false;" action="index.html" method="get" target="_top">
     <div id="modesContainer">
@@ -20,6 +20,7 @@
     </div>
     <div id="searchContainer">
       <input type="text" id="searchField" value="" name="q" autocomplete="off"/>
+      <span id="clear">x</span>
       <img src="ajax-loader.gif" alt="" id="icon" style="display:none"/>
     </div>
     <div>
@@ -30,6 +31,7 @@
 </div>
 <script src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q" type="text/javascript"></script>
 <script type="text/javascript" language="JavaScript" src="lib/jquery-1.4.2.js"></script>
+<script type="text/javascript" language="JavaScript" src="lib/jquery.lambda.js"></script>
 <script type="text/javascript" language="JavaScript" src="search.js?v=1.0.2"></script>
 <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

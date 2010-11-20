@@ -22,8 +22,11 @@ function init() {
   initToggleBehavior();
   initRadioBehavior();
   initUrlParams();
+  initClearBehavior();
 }
-
+function initClearBehavior() {
+  $('#clear').click($l.$('#searchField').val('').focus());
+}
 function url() { return "http://ajax.googleapis.com/ajax/services/search/" + searchMode().url; }
 
 function searchMode() {
@@ -284,10 +287,7 @@ function initJqueryPlugins() {
           }
         }
       }
-      if (!bFound) {
-        return null;
-      }
-      return strReturn;
+      return bFound ? strReturn : null;
     }
   });
 }
