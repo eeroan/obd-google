@@ -18,19 +18,6 @@ a img {border:none;}
 form { display: block; left: 0; width: 100%; padding: 0; border-bottom: 1px solid gray; z-index: 99; background:#fff;overflow:hidden;}
 #large { position:absolute; background: url(logo.gif) no-repeat 7px 5px white; width:100%; top:0; bottom: 0;}
 
-/*
-inactive bottom
-#E3E3E3
-
-inactive top
-#F9F9F9
-
-active bottom: #F9F9F9
-active top: #E3E3E3
-border #BBBBBB
-blue header: #BBCCFF
-*/
-
 #modesContainer {border-bottom:1px solid #BBBBBB;background:#BBCCFF;padding:5px;padding-bottom:0;}
 #modesContainer label { color: #666; cursor:pointer; font-size: 110%; margin-left: 2px; display: inline-block; padding: 6px 9px; background: white -moz-linear-gradient(19% 75% 90deg, #E3E3E3, #F9F9F9); -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;}
 #modesContainer input { display:none;}
