@@ -10,21 +10,21 @@
   <a href="search.html#" id="show" class="button">Show &gt;</a>
 </div>
 <div id="large">
-  <a href="search.html#" id="hide" class="button">Hide</a>
+  <a href="search.html#" title="Hide sidebar" id="hide" class="button">Hide</a>
 
   <form onsubmit="return false;" action="index.html" method="get" target="_top">
     <div id="modesContainer">
-      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode"/> <label for="textMode" class="selected">Text</label>
-      <input type="radio" name="mode" id="imageMode" value="imageMode"/> <label for="imageMode">Image</label>
-      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode"/> <label for="youtubeMode">YouTube</label>
+      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode"/> <label title="Text search" for="textMode" class="selected">Text</label>
+      <input type="radio" name="mode" id="imageMode" value="imageMode"/> <label title="Image search" for="imageMode">Image</label>
+      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode"/> <label title="YouTube search" for="youtubeMode">YouTube</label>
     </div>
     <div id="searchContainer">
       <input type="text" id="searchField" value="" name="q" autocomplete="off"/>
-      <span id="clear">x</span>
+      <span title="Clear seach box" id="clear">x</span>
       <img src="ajax-loader.gif" alt="" id="icon" style="display:none"/>
     </div>
     <div>
-      <a href="search.html#" id="newWindow" target="_blank">open in new window</a>
+      <a href="search.html#" title="Open search result in new window" id="newWindow" target="_blank">open in new window</a>
     </div>
   </form>
   <div id="results"></div>
