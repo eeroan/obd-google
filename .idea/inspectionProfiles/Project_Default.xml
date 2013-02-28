@@ -8,6 +8,7 @@
     <inspection_tool class="ComparatorNotSerializable" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
       <option name="myCustomPropertiesList">
         <value>
           <list size="1">
@@ -77,21 +78,6 @@
     <inspection_tool class="TransientFieldInNonSerializableClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TransientFieldNotInitialized" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TypeParameterHidesVisibleType" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UNUSED_SYMBOL" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="LOCAL_VARIABLE" value="true" />
-      <option name="FIELD" value="true" />
-      <option name="METHOD" value="true" />
-      <option name="CLASS" value="true" />
-      <option name="PARAMETER" value="true" />
-      <option name="REPORT_PARAMETER_FOR_PUBLIC_METHODS" value="true" />
-      <option name="INJECTION_ANNOS">
-        <value>
-          <list size="1">
-            <item index="0" class="java.lang.String" itemvalue="com.google.inject.Inject" />
-          </list>
-        </value>
-      </option>
-    </inspection_tool>
     <inspection_tool class="UnnecessaryInterfaceModifier" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessarySuperConstructor" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
