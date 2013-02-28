@@ -6,10 +6,10 @@ var currentStart = 0;
 var waitingForNext = false;
 var throttle = 30;
 var scrollDistance = 100;
-google.setOnLoadCallback(function() {
+google.setOnLoadCallback(function () {
   initSearchField();
   initRadioBehavior();
-  $("#more").click(function() {
+  $("#more").click(function () {
     alert("lol");
     doNext();
     return false;
@@ -22,23 +22,23 @@ function url() {
 
 function searchMode() {
   var SEARCH_MODES = {
-    textMode: {
-      name:'Text search',
-      url:'web?callback=?',
-      isImages:false,
-      callBack:webCallBack
+    textMode   : {
+      name    : 'Text search',
+      url     : 'web?callback=?',
+      isImages: false,
+      callBack: webCallBack
     },
-    imageMode: {
-      name:'Image search',
-      url:'images?callback=?',
-      isImages:true,
-      callBack:imagesCallBack
+    imageMode  : {
+      name    : 'Image search',
+      url     : 'images?callback=?',
+      isImages: true,
+      callBack: imagesCallBack
     },
     youtubeMode: {
-      name:'YouTube search',
-      url:'video?callback=?',
-      isImages:true,
-      callBack:youtubeCallback
+      name    : 'YouTube search',
+      url     : 'video?callback=?',
+      isImages: true,
+      callBack: youtubeCallback
     }
   };
   return SEARCH_MODES[$('#modesContainer input[name=mode]:checked').val()];
@@ -49,7 +49,7 @@ function initSearchField() {
 }
 
 function initRadioBehavior() {
-  $("#modesContainer input").change(function() {
+  $("#modesContainer input").change(function () {
     $("#searchField").focus();
     setResultClass();
     doSearch();
@@ -64,7 +64,7 @@ function initRadioBehavior() {
 function doSearch() {
   $("#icon").show();
   currentStart = 0;
-  $.getJSON(url(), restParams(0), function(data) {
+  $.getJSON(url(), restParams(0), function (data) {
     $("#results").empty().scrollTop(0);
     callBack(data);
     $("#icon").hide();
@@ -80,7 +80,7 @@ function doSearch() {
 function doNext() {
   waitingForNext = true;
   currentStart += pageSize;
-  $.getJSON(url(), restParams(currentStart), function(data) {
+  $.getJSON(url(), restParams(currentStart), function (data) {
     callBack(data);
     waitingForNext = false;
   });
@@ -101,7 +101,7 @@ function callBack(data) {
 
 function webCallBack(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = $("<p>").append(a().append(resultData.content));
@@ -116,7 +116,7 @@ function webCallBack(data) {
 
 function imagesCallBack(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = a().append($("<img>").attr("src", resultData.tbUrl).attr('title', resultData.titleNoFormatting));
@@ -130,7 +130,7 @@ function imagesCallBack(data) {
 
 function youtubeCallback(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = a().append($("<img>").attr("src", resultData.tbUrl).attr('title', resultData.titleNoFormatting));
@@ -149,12 +149,12 @@ function doClick(resultData, elem) {
 
 function restParams(start) {
   return {
-    v:"1.0",
-    q:query(),
-    num:pageSize,
-    rsz:'large',
-    safe:'off',
-    start:start
+    v    : "1.0",
+    q    : query(),
+    num  : pageSize,
+    rsz  : 'large',
+    safe : 'off',
+    start: start
   };
 }
 
@@ -183,7 +183,7 @@ function scrollTo(middleItem) {
 }
 
 function initJqueryPlugins() {
-  $.fn.exists = function() {
+  $.fn.exists = function () {
     return this && this.length > 0;
   };
 }

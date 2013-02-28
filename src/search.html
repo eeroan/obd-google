@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>Google search</title>
@@ -14,9 +15,12 @@
 
   <form onsubmit="return false;" action="index.html" method="get" target="_top">
     <div id="modesContainer">
-      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode"/> <label title="Text search" for="textMode" class="selected">Text</label>
+      <input type="radio" name="mode" id="textMode" checked="checked" value="textMode"/> <label title="Text search"
+                                                                                                for="textMode"
+                                                                                                class="selected">Text</label>
       <input type="radio" name="mode" id="imageMode" value="imageMode"/> <label title="Image search" for="imageMode">Image</label>
-      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode"/> <label title="YouTube search" for="youtubeMode">YouTube</label>
+      <input type="radio" name="mode" id="youtubeMode" value="youtubeMode"/> <label title="YouTube search"
+                                                                                    for="youtubeMode">YouTube</label>
     </div>
     <div id="searchContainer">
       <input type="text" id="searchField" value="" name="q" autocomplete="off"/>
@@ -24,12 +28,15 @@
       <img src="ajax-loader.gif" alt="" id="icon" style="display:none"/>
     </div>
     <div>
-      <a href="search.html#" title="Open search result in new window" id="newWindow" target="_blank">open in new window</a>
+      <a href="search.html#" title="Open search result in new window" id="newWindow" target="_blank">open in new
+        window</a>
     </div>
   </form>
   <div id="results"></div>
 </div>
-<script src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q" type="text/javascript"></script>
+<script
+  src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q"
+  type="text/javascript"></script>
 <script type="text/javascript" language="JavaScript" src="lib/jquery-1.4.2.js"></script>
 <script type="text/javascript" language="JavaScript" src="lib/jquery.lambda.js"></script>
 <script type="text/javascript" language="JavaScript" src="search.js?v=1.0.2"></script>

@@ -31,39 +31,39 @@ function url() { return "http://ajax.googleapis.com/ajax/services/search/" + sea
 
 function searchMode() {
   var SEARCH_MODES = {
-    textMode: {
-      name:'Text search',
-      url:'web?callback=?',
-      isImages:false,
-      callBack:webCallBack
+    textMode   : {
+      name    : 'Text search',
+      url     : 'web?callback=?',
+      isImages: false,
+      callBack: webCallBack
     },
-    imageMode: {
-      name:'Image search',
-      url:'images?callback=?',
-      isImages:true,
-      callBack:imagesCallBack
+    imageMode  : {
+      name    : 'Image search',
+      url     : 'images?callback=?',
+      isImages: true,
+      callBack: imagesCallBack
     },
     youtubeMode: {
-      name:'YouTube search',
-      url:'video?callback=?',
-      isImages:true,
-      callBack:youtubeCallback
+      name    : 'YouTube search',
+      url     : 'video?callback=?',
+      isImages: true,
+      callBack: youtubeCallback
     }
   };
   return SEARCH_MODES[$('#modesContainer input[name=mode]:checked').val()];
 }
 
 function initSearchField() {
-  $("#searchField").val("").focus().keyup(function() {
+  $("#searchField").val("").focus().keyup(function () {
     clearTimeout(keyUpEvent);
     keyUpEvent = setTimeout(keyUpAction, throttle);
   });
 }
 
 function initShortcuts() {
-  $("#searchField").keyup(function(e) {
+  $("#searchField").keyup(function (e) {
     var selected = $("#results .selected");
-    switch (e.keyCode) {
+    switch(e.keyCode) {
       case 38:
         moveTo(selected.prev());
         break;
@@ -73,7 +73,7 @@ function initShortcuts() {
     }
 
     function moveTo(elem) {
-      if (elem.exists()) {
+      if(elem.exists()) {
         elem.click();
         scrollTo(elem);
       }
@@ -84,23 +84,23 @@ function initShortcuts() {
 function keyUpAction() { fieldChange($("#searchField"), doSearch); }
 
 function initScrollBehavior() {
-  $("#results").scroll(function() {
-    if (isAtEnd() && !waitingForNext) {
+  $("#results").scroll(function () {
+    if(isAtEnd() && !waitingForNext) {
       doNext();
     }
   });
 }
 
 function initToggleBehavior() {
-  $("#hide").click(function() { toggleSidebar(false); });
-  $("#show").click(function() {
+  $("#hide").click(function () { toggleSidebar(false); });
+  $("#show").click(function () {
     toggleSidebar(true);
     $("#searchField").focus();
   });
 }
 
 function initRadioBehavior() {
-  $("#modesContainer input").change(function() {
+  $("#modesContainer input").change(function () {
     $("#modesContainer .selected").removeClass('selected');
     $(this).next().addClass('selected');
     $("#searchField").focus();
@@ -116,9 +116,9 @@ function initUrlParams() {
   //var searchHref = document.location.href;
   var query = URLDecode($.getURLParam('q', topHref));
   var mode = URLDecode($.getURLParam('mode', topHref));
-  if (query) {
+  if(query) {
     $("#searchField").val(query);
-    if (mode) {
+    if(mode) {
       $("#" + mode).click();
     }
     doSearch();
@@ -135,7 +135,7 @@ function toggleSidebar(isVisible) {
 function fieldChange(field, onchange) {
   var lastVal = field.data("lastValue");
   var currentVal = $.trim(field.val());
-  if (!lastVal || lastVal != currentVal) {
+  if(!lastVal || lastVal != currentVal) {
     field.data("lastValue", currentVal);
     onchange(currentVal);
   }
@@ -144,13 +144,13 @@ function fieldChange(field, onchange) {
 function doSearch() {
   $("#icon").show();
   currentStart = 0;
-  $.getJSON(url(), restParams(0), function(data) {
+  $.getJSON(url(), restParams(0), function (data) {
     $("#results").empty().scrollTop(0);
     callBack(data);
-    if (hasResults(data)) {
+    if(hasResults(data)) {
       doClick(results(data)[0], $("#results .result:first"), firstResultDelay);
     } else {
-      doClick({url:"empty.html",titleNoFormatting:"Google OBD"}, $("#searchField"), firstResultDelay);
+      doClick({url: "empty.html", titleNoFormatting: "Google OBD"}, $("#searchField"), firstResultDelay);
     }
     $("#icon").hide();
     doNext();
@@ -160,7 +160,7 @@ function doSearch() {
 function doNext() {
   waitingForNext = true;
   currentStart += pageSize;
-  $.getJSON(url(), restParams(currentStart), function(data) {
+  $.getJSON(url(), restParams(currentStart), function (data) {
     callBack(data);
     waitingForNext = false;
   });
@@ -172,13 +172,13 @@ function callBack(data) { searchMode().callBack(data); }
 
 function webCallBack(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = $("<p>").append(a().append(resultData.content));
     var url = a().append(resultData.visibleUrl);
     var result = $("<div>").addClass("result").append(title).append(content).append(url);
-    result.click(function() {
+    result.click(function () {
       $("#searchField").focus();
       doClick(resultData, $(this));
       return false;
@@ -190,12 +190,12 @@ function webCallBack(data) {
 
 function imagesCallBack(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = a().append($("<img>").attr("src", resultData.tbUrl).attr('title', resultData.titleNoFormatting));
     var result = $("<div>").addClass("result").append(title).append(content);
-    result.click(function() {
+    result.click(function () {
       $("#searchField").focus();
       doClick(resultData, $(this));
       return false;
@@ -207,12 +207,12 @@ function imagesCallBack(data) {
 
 function youtubeCallback(data) {
   var target = $("#results");
-  $(results(data)).each(function() {
+  $(results(data)).each(function () {
     var resultData = this;
     var title = $("<h2>").append(a().append(resultData.title));
     var content = a().append($("<img>").attr("src", resultData.tbUrl).attr('title', resultData.titleNoFormatting));
     var result = $("<div>").addClass("result").append(title).append(content);
-    result.click(function() {
+    result.click(function () {
       $("#searchField").focus();
       doClick(resultData, $(this));
       return false;
@@ -226,19 +226,19 @@ function doClick(resultData, elem, delay) {
   highlightSelected(elem);
   parent.document.title = resultData.titleNoFormatting;
   clearTimeout(firstResultSelectEvent);
-  firstResultSelectEvent = setTimeout(function() {
+  firstResultSelectEvent = setTimeout(function () {
     setTargetPage(resultData.playUrl || resultData.url);
   }, delay || resultClickDelay);
 }
 
 function restParams(start) {
   return {
-    v:"1.0",
-    q:query(),
-    num:pageSize,
-    rsz:'large',
-    safe:'off',
-    start:start
+    v    : "1.0",
+    q    : query(),
+    num  : pageSize,
+    rsz  : 'large',
+    safe : 'off',
+    start: start
   };
 }
 
@@ -266,20 +266,20 @@ function scrollTo(middleItem) {
 }
 
 function initJqueryPlugins() {
-  $.fn.exists = function() { return this && this.length > 0; };
+  $.fn.exists = function () { return this && this.length > 0; };
   $.extend({
-    getURLParam: function(strParamName, strHref) {
+    getURLParam: function (strParamName, strHref) {
       var strReturn = "";
       var bFound = false;
 
       var cmpstring = strParamName + "=";
       var cmplen = cmpstring.length;
 
-      if (strHref.indexOf("?") > -1) {
+      if(strHref.indexOf("?") > -1) {
         var strQueryString = strHref.substr(strHref.indexOf("?") + 1);
         var aQueryString = strQueryString.split("&");
-        for (var iParam = 0; iParam < aQueryString.length; iParam++) {
-          if (aQueryString[iParam].substr(0, cmplen) == cmpstring) {
+        for(var iParam = 0; iParam < aQueryString.length; iParam++) {
+          if(aQueryString[iParam].substr(0, cmplen) == cmpstring) {
             var aParam = aQueryString[iParam].split("=");
             strReturn = aParam[1];
             bFound = true;
@@ -293,7 +293,7 @@ function initJqueryPlugins() {
 }
 
 function URLDecode(psEncodeString) {
-  if (!psEncodeString) {
+  if(!psEncodeString) {
     return null;
   }
   var lsRegExp = /\+/g;
